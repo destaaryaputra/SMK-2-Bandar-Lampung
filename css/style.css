@@ -1,0 +1,430 @@
+/* =========================================================
+:root {
+  --primary-dark: #003366;
+  --primary: #004080;
+  --accent: #ffcc00;
+  --bg-color: #ffffff;
+  --text-color: #000000;
+}
+
+/* Dark theme overrides */
+:root[data-theme='dark'] {
+  --primary-dark: #111111;
+  --primary: #222222;
+  --accent: #ffcc00;
+  --bg-color: #111111;
+  --text-color: #eeeeee;
+}
+   STYLE WEBSITE PROFIL SMKN 2 BANDAR LAMPUNG
+   ========================================================= */
+
+/* ====== UMUM ====== */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+h2 {
+  color: var(--primary);
+  text-align: center;
+}
+
+/* ====== HEADER ====== */
+#header {
+  background: linear-gradient(90deg, var(--primary-dark), var(--primary));
+  color: white;
+  padding-bottom: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Baris utama header */
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 25px 80px 15px;
+  flex-wrap: nowrap;
+}
+
+/* Logo kiri */
+.logo {
+  width: 110px;
+  height: auto;
+  position: absolute;
+  left: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Judul & slogan di tengah */
+.header-info {
+  text-align: center;
+  flex: 1;
+}
+
+.judul {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.slogan {
+  margin-top: 4px;
+  font-style: italic;
+  font-size: 1rem;
+  opacity: 0.95;
+}
+
+/* Jam kanan atas */
+.jam-digital {
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  padding: 6px 16px;
+  border-radius: 8px;
+  color: #ffffff;
+  font-weight: 600;
+  text-align: center;
+  font-size: 0.95rem;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.35);
+  white-space: nowrap;
+  position: absolute;
+  right: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* ====== NAVBAR ====== */
+.theme-toggle {
+  position: absolute;
+  right: 110px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.theme-toggle:hover {
+  color: var(--accent);
+}
+.navbar {
+  background-color: #002b5b;
+  padding: 12px 0;
+  margin-top: 0;
+}
+
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.navbar a:hover {
+  color: var(--accent);
+}
+
+/* Konten */
+#konten {
+  padding: 20px;
+}
+
+#deskripsi p {
+  text-align: justify;
+  margin-bottom: 15px;
+}
+
+/* Program Unggulan */
+.program-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  flex: 1 1 250px;
+  background: #f0f8ff;
+  padding: 15px;
+  border: 2px solid var(--primary);
+  border-radius: 10px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* Galeri */
+#galeri {
+  margin-top: 30px;
+}
+
+.galeri-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.galeri-grid img {
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ====== LIGHTBOX GALERI ====== */
+.lightbox {
+  display: none; /* awalnya disembunyikan */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  transform: scale(0.8);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.lightbox.show img {
+  transform: scale(1);
+  opacity: 1;
+  transition: all 0.4s ease;
+}
+
+/* Tutup lightbox dengan klik di luar gambar */
+.lightbox.show {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Animasi fade-in background */
+@keyframes fadeIn {
+  from {
+    background: rgba(0, 0, 0, 0);
+  }
+  to {
+    background: rgba(0, 0, 0, 0.8);
+  }
+}
+
+
+/* Efek saat hover */
+.galeri-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 64, 128, 0.4);
+}
+
+/* Efek saat diklik */
+.galeri-grid img:active {
+  transform: scale(0.97);
+  box-shadow: 0 0 10px rgba(0, 64, 128, 0.6);
+  transition: transform 0.1s ease;
+}
+
+
+/* Footer */
+#kontak {
+  background-color: var(--primary);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  border-top: 5px solid #00264d;
+}
+
+/* ====== FORM KONTAK ====== */
+#form-kontak {
+  padding: 20px 10px;
+  background: #f9f9f9;
+  border-top: 3px solid var(--primary);
+  text-align: center;
+}
+
+#form-kontak h2 {
+  margin-bottom: 10px;
+  color: var(--primary);
+  font-size: 1.3rem;
+}
+
+#form-kontak form {
+  max-width: 320px;
+  margin: auto;
+  text-align: left;
+}
+
+#form-kontak label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 600;
+  color: var(--primary);
+  font-size: 0.9rem;
+}
+
+#form-kontak input,
+#form-kontak textarea {
+  width: 100%;
+  padding: 6px 8px;
+  margin-bottom: 12px;
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+}
+
+#form-kontak textarea {
+  resize: vertical;
+}
+
+#form-kontak button {
+  display: block;
+  width: 100%;
+  background-color: var(--primary);
+  color: white;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#form-kontak button:hover {
+  background-color: var(--accent);
+  color: var(--primary);
+}
+
+/* ====== FOOTER ====== */
+#kontak {
+  background-color: var(--primary);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  border-top: 5px solid #00264d;
+  font-size: 0.95rem;
+}
+
+/* ====== RESPONSIVE DESIGN ====== */
+
+/* Tablet (max 992px) */
+@media (max-width: 992px) {
+  .header-top {
+    padding: 20px 50px 10px;
+  }
+  .logo {
+    width: 90px;
+    left: 30px;
+  }
+  .jam-digital {
+    right: 30px;
+    font-size: 0.9rem;
+  }
+  .judul {
+    font-size: 1.7rem;
+  }
+}
+
+/* ====== ANIMASI FADE-ZOOM SAAT SCROLL (TIDAK MENGHILANGKAN ISI) ====== */
+.fade-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* HP (max 768px) */
+@media (max-width: 768px) {
+  .header-top {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 20px;
+  }
+
+  .logo {
+    position: static;
+    transform: none;
+    margin-bottom: 10px;
+    width: 80px;
+  }
+
+  .jam-digital {
+    position: static;
+    transform: none;
+    margin-top: 10px;
+    font-size: 0.9rem;
+  }
+
+  .judul {
+    font-size: 1.5rem;
+  }
+
+  .slogan {
+    font-size: 0.9rem;
+  }
+
+  .navbar ul {
+    gap: 15px;
+    font-size: 0.95rem;
+  }
+
+  .program-grid {
+    flex-direction: column;
+  }
+}
+
+/* HP kecil (max 480px) */
+@media (max-width: 480px) {
+  .judul {
+    font-size: 1.3rem;
+  }
+
+  .slogan {
+    font-size: 0.85rem;
+  }
+
+  .jam-digital {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+
+  #form-kontak form {
+    max-width: 280px;
+  }
+}
