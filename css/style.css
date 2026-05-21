@@ -368,6 +368,42 @@ h2 {
   transform: translateY(0);
 }
 
+/* HERO BANNER */
+.hero {
+  background: url('../assets/images/smk-expo.jpeg') center/cover no-repeat;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  text-shadow: 0 0 5px rgba(0,0,0,0.7);
+  font-size: 2rem;
+  text-align: center;
+}
+
+/* NEWS GRID */
+.news-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin-top: 20px;
+}
+.news-card {
+  background: var(--bg-color);
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  padding: 12px;
+}
+.news-card h3 {
+  margin-top: 0;
+  color: var(--primary);
+}
+.news-card .date {
+  font-size: 0.85rem;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
 /* HP (max 768px) */
 @media (max-width: 768px) {
   .header-top {
